@@ -1,22 +1,20 @@
+require 'plane'
+
 describe Plane do
  
-  let(:plane) { Plane.new }
+  	let(:plane)   { Plane.new }
   
-  context 'initialize:' do
-  	it 'has a flying status when created' do
-  		expect(plane.flying?).to be true
+		it "has a flying status when created" do
+			expect(plane.status).to be :flying
 		end
-	end
 
-	context 'take off and landing' do
-		it 'is able to disembark' do
-			plane.disembark!
-			expect(plane.flying?).to be false
+		it "changes its status to flying after taking off" do
+			plane.take_off!
+			expect(plane.status).to be :flying
 		end
-	  
-	  it 'can depart' do
-	  	plane.depart!
-	  	expect(plane.flying?).to be true
-	  end
-	end
+
+		it "changes its status to landed after landing" do
+			plane.take_off!.disembark!
+			expect(plane.status).to be :disembarked
+		end
 end

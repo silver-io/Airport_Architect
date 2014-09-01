@@ -1,18 +1,19 @@
 class Plane
 
+	attr_reader :status
+
 	def initialize
-		@flying = true
+		take_off!
 	end
 
-	def flying?
-		@flying
+	def take_off!
+		@status = :flying
+		self
 	end
 
 	def disembark!
-		@flying = false
+		@status = :disembarked
+		self
 	end
 
-	def depart!
-		@flying = true
-	end
 end

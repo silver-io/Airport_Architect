@@ -13,13 +13,15 @@ describe Airport do
   end
 
   context 'taking off and landing:' do
-    it 'a plane can land' do  
+    it 'a plane can land' do
+      allow(airport).to receive(:stormy?).and_return false
       expect(airport.full?).to be false
       airport.land(plane)
       expect(airport.plane_count).to eq(1)
     end
     
     it 'a plane can take off' do
+      allow(airport).to receive(:stormy?).and_return false
       airport.land(plane)
       expect(airport.plane_count).to eq(1)
       airport.take_off(plane)
@@ -29,6 +31,7 @@ describe Airport do
   
   context 'traffic control:' do
     it 'a plane cannot land if the airport is full' do
+      allow(airport).to receive(:stormy?).and_return false
       6.times { airport.land(plane) }
       expect(airport.full?).to be true
       expect { airport.land(plane) }.to raise_error("Airport full!")
@@ -37,12 +40,9 @@ describe Airport do
 
 context 'weather conditions:' do
 
-      it 'planes cannot take off when there is a storm brewing' do
-          allow { airport.take_off(plane) }
-          # allow airport to receive stormy? and return false
-
-
-      end
+    it 'planes cannot take off when there is a storm brewing' do
+      allow(airport).to receive(:stormy?).and_return false
+    end
       
       it 'a plane cannot land in the middle of a storm' do
       end

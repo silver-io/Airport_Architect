@@ -41,27 +41,14 @@ describe Airport do
 context 'weather conditions:' do
 
     it 'planes cannot take off when there is a storm brewing' do
-      allow(airport).to receive(:stormy?).and_return false
+      allow(airport).to receive(:stormy?).and_return true
+      expect { airport.take_off(plane) }.to raise_error("Unable to take off due to bad weather!")
     end
       
-      it 'a plane cannot land in the middle of a storm' do
-      end
+    it 'a plane cannot land in the middle of a storm' do
+      allow(airport).to receive(:stormy?).and_return true
+      expect { airport.land(plane) }.to raise_error("Unable to land due to bad weather!")
+    end
     end
 end
  
-# When we create a new plane, it should have a "flying" status, thus planes can not be created in the airport.
-#
-# When we land a plane at the airport, the plane in question should have its status changed to "landed"
-#
-# When the plane takes of from the airport, the plane's status should become "flying"
-
- 
-# grand final
-# Given 6 planes, each plane must land. When the airport is full, every plane must take off again.
-# Be careful of the weather, it could be stormy!
-# Check when all the planes have landed that they have the right status "landed"
-# Once all the planes are in the air again, check that they have the status of flying!
-describe "The grand finale (last spec)" do
-  it 'all planes can land and all planes can take off' do
-  end
-end

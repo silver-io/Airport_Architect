@@ -39,6 +39,7 @@ context 'weather conditions:' do
 
       it 'planes cannot take off when there is a storm brewing' do
           allow { airport.take_off(plane) }
+          # allow airport to receive stormy? and return false
 
 
       end

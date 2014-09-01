@@ -20,6 +20,3 @@ describe Plane do
 	  end
 	end
 end
-
-
-# allow airport to receive stormy? and return false

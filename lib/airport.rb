@@ -1,7 +1,7 @@
-# include '/.lib/weather.rb'
+require 'weather.rb'
 
 class Airport
-# include Weather
+include Weather
 
 DEFAULT_CAPACITY = 6
 

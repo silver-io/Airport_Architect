@@ -7,12 +7,14 @@ describe Airport do
   let(:plane  ) { Plane.new    }
   
   context 'initialize:' do
+
     it 'should be empty when created' do
       expect(airport.full?).to be false
     end
   end
 
   context 'taking off and landing:' do
+
     it 'a plane can land' do
       allow(airport).to receive(:stormy?).and_return false
       expect(airport.full?).to be false
@@ -30,6 +32,7 @@ describe Airport do
   end
   
   context 'traffic control:' do
+    
     it 'a plane cannot land if the airport is full' do
       allow(airport).to receive(:stormy?).and_return false
       6.times { airport.land(plane) }

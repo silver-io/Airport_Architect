@@ -1,17 +1,28 @@
 require 'airport'
 require 'plane'
-require 'weather'
 
 describe "the grand finale" do
+		let(:heathrow) {Airport.new}
 
-  it 'all planes can land and all planes can take off' do
-  
-  
-  end
+    it 'all planes must be able to land' do
+	    six_planes = []
+	    6.times{six_planes << Plane.new }
+	    allow(heathrow).to receive(:stormy?).and_return(false)
+	    six_planes.each {|plane| heathrow.land(plane)}
+	   	end
+
+    it 'all planes must be able to take_off' do
+    	six_planes = []
+	    6.times{six_planes << Plane.new }
+	    allow(heathrow).to receive(:stormy?).and_return(false)
+	    six_planes.each {|plane| heathrow.take_off(plane)}
+	    # allow(heathrow).to receive(:stormy?).and_return(true)
+	    # expect{heathrow.land(last_plane)}.to raise_error "Unable to land due to bad weather!"
+	    # expect(heathrow.plane_count).to eq(6)
+
+
+	    # heathrow.release_all_landed_planes
+	    # expect(heathrow.plane_count).to eq 0
+    end
+
 end
-
-# grand final
-# Given 6 planes, each plane must land. When the airport is full, every plane must take off again.
-# Be careful of the weather, it could be stormy!
-# Check when all the planes have landed that they have the right status "landed"
-# Once all the planes are in the air again, check that they have the status of flying!

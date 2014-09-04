@@ -25,10 +25,20 @@ include Weather
 
 	  def land(plane)
 	  	raise 'Airport full!' if full?
-	  	plane.disembark!
-	  	@planes << plane unless stormy?
 	  	raise "Unable to land due to bad weather!" if stormy? == true
+	  	plane.disembark!
+	  	@planes << plane 
+	  end
 
+	  def land_all(planes)
+	  	until planes.empty?
+	  		begin
+	  			plane = planes.pop
+		  		land(plane)
+		  	rescue RuntimeError => e
+		  		@planes << plane
+		  	end
+	  	end
 	  end
 
 	  def take_off(plane)

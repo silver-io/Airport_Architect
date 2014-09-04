@@ -31,7 +31,7 @@ describe Airport do
     end
 
     it 'changes status after take off and landing' do
-      allow(airport).to receive(:stormy?).and_return false
+      allow(airport).to receive(:stormy?).and_return falseo
       allow(plane).to receive(:take_off).and_return(@flying= true)
       allow(plane).to receive(:land).and_return(@flying= false)
       airport.take_off(plane)  

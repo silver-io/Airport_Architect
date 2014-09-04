@@ -1,3 +1,5 @@
+require 'weather'
+
 class Plane
 
 	attr_reader :status

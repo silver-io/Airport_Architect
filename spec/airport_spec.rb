@@ -29,6 +29,15 @@ describe Airport do
       airport.take_off(plane)
       expect(airport.plane_count).to eq(0)
     end
+
+    it 'changes status after take off and landing' do
+      allow(airport).to receive(:stormy?).and_return false
+      allow(plane).to receive(:take_off).and_return(@flying= true)
+      allow(plane).to receive(:land).and_return(@flying= false)
+      airport.take_off(plane)  
+      airport.land(plane)
+      expect(@flying).to eq false
+    end
   end
   
   context 'traffic control:' do
@@ -41,7 +50,7 @@ describe Airport do
     end
   end
 
-context 'weather conditions:' do
+  context 'weather conditions:' do
 
     it 'planes cannot take off when there is a storm brewing' do
       allow(airport).to receive(:stormy?).and_return true
@@ -52,6 +61,6 @@ context 'weather conditions:' do
       allow(airport).to receive(:stormy?).and_return true
       expect { airport.land(plane) }.to raise_error("Unable to land due to bad weather!")
     end
-    end
+  end
 end
  

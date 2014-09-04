@@ -1,4 +1,5 @@
 require './lib/weather'
+require './lib/plane'
 
 class Airport
 include Weather
@@ -24,6 +25,7 @@ include Weather
 
 	  def land(plane)
 	  	raise 'Airport full!' if full?
+	  	plane.disembark!
 	  	@planes << plane unless stormy?
 	  	raise "Unable to land due to bad weather!" if stormy? == true
 
@@ -31,6 +33,7 @@ include Weather
 
 	  def take_off(plane)
 	  	@planes.delete(plane) unless stormy?
+	  	plane.take_off!
 	  	raise "Unable to take off due to bad weather!" if stormy? == true
 	  end
 end

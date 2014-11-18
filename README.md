@@ -1,7 +1,7 @@
 ## Spec
 
 [![Code Climate](https://codeclimate.com/github/silver-io/Airport_Architect/badges/gpa.svg)](https://codeclimate.com/github/silver-io/Airport_Architect)
-[![Test Coverage](https://codeclimate.com/github/silver-io/Airport_Architect/badges/coverage.svg)](https://codeclimate.com/github/silver-io/Airport_Architect)
+<!-- [![Test Coverage](https://codeclimate.com/github/silver-io/Airport_Architect/badges/coverage.svg)](https://codeclimate.com/github/silver-io/Airport_Architect) -->
 
 Intro
 

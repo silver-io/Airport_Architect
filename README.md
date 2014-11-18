@@ -1,5 +1,7 @@
 ## Spec
 
+[![Code Climate](https://codeclimate.com/github/silver-io/Airport_Architect/badges/gpa.svg)](https://codeclimate.com/github/silver-io/Airport_Architect)
+
 Intro
 
 A plane currently in the airport can be requested to take off.
